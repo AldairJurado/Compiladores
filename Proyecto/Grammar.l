@@ -7,20 +7,18 @@
 %}
 /*Expresiones regulares*/
 
-numbers([0-9])+  /*acepta numeros de uno o mas digitos*/
-alpha([a-zA-Z])+ /*acepta el alfabeto*/
-
+numbers ([0-9])+  /*acepta numeros de uno o mas digitos*/
+alpha ([a-zA-Z])+ /*acepta el alfabeto*/
+id {L}({L}|{D})* /*Si se encuentra un caracter seguido de mas caracteres o numeros */
 /*Especificacion de Tokens*/
 %%
- 
-{numbers}   {yylval.numdata = atoi(yytext); return(NUM);} /*pasa algo similar a arriba,solo que convierte el texto a un numero entero*/
-"if"        {sscanf(yytext,"%s,yylval.value");return(IF);}/*la primera funcion tomara el valor de la cadena y agregara ese valor a la otra cadena nt: yytext es el nombre de la variable que se tiene cuando se ingresa una cadena en el compilador*/
-"else"      {sscanf(yytext,"%s,yylval.value");return(FOR);}
+{id}}       {sscanf(yytext,"%s,yylval.value");return(ID);}  /*Si se encuentra un caracter seguido de mas caracteres o numeros */
+"else"      {sscanf(yytext,"%s,yylval.value");return(ELSE);}
 "for"       {sscanf(yytext,"%s,yylval.value");return(FOR);}
 "while"     {sscanf(yytext,"%s,yylval.value");return(WHILE);}
 "int"       {sscanf(yytext,"%s,yylval.value");return(INT);}
-"char"      {sscanf(yytext,"%s,yylval.value");return(FOR);}
-
+"char"      {sscanf(yytext,"%s,yylval.value");return(CHAR);}
+"string"    {sscanf(yytext,"%s,yylval.value");return(CADENA);}    
 "{"         {sscanf(yytext,"%s,yylval.value");return(LLAVABRE);}
 "}"         {sscanf(yytext,"%s,yylval.value");return(LLAVCIERRA);}
 ","         {sscanf(yytext,"%s,yylval.value");return(COMA);}
@@ -32,7 +30,8 @@ alpha([a-zA-Z])+ /*acepta el alfabeto*/
 "*"         {sscanf(yytext,"%s,yylval.value");return(MUL);}
 "/"         {sscanf(yytext,"%s,yylval.value");return(DIV);}
 "^"         {sscanf(yytext,"%s,yylval.value");return(POT);}
-";"         {yytext,"%s,return(PUNTCOM);}
+"!"         {sscanf(yytext,"%s,yylval.value");return(NEG);}
+";"         {sscanf(yytext,"%s,yylval.value"),return(PUNTCOM);}
 "="         {sscanf(yytext,"%s,yylval.value");return(ASIGNACION);}
 "+="        {sscanf(yytext,"%s,yylval.value");return(COMPSUM);}
 "-="        {sscanf(yytext,"%s,yylval.value");return(COMPRES);}
