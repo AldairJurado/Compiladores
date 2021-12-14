@@ -7,4 +7,4 @@
 
 ## Notas
 ##No es mucho,pero es trabajo honesto
-!(https://plantillasdememes.com/img/plantillas/no-es-mucho-pero-es-trabajo-honesto01569991155.jpg)
+!["trabajo honesto"](https://plantillasdememes.com/img/plantillas/no-es-mucho-pero-es-trabajo-honesto01569991155.jpg)
