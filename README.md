@@ -6,4 +6,4 @@
 ### Grupo: 3CV15
 
 ## Notas
-> ***No es mucho,pero es trabajo honesto***
+##No es mucho,pero es trabajo honesto
