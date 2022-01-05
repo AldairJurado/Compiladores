@@ -19,26 +19,28 @@ id {L}({L}|{D})* /*Si se encuentra un caracter seguido de mas caracteres o numer
 "int"       {sscanf(yytext,"%s,yylval.value");return(INT);}
 "char"      {sscanf(yytext,"%s,yylval.value");return(CHAR);}
 "string"    {sscanf(yytext,"%s,yylval.value");return(CADENA);}    
-"{"         {sscanf(yytext,"%s,yylval.value");return(LLAVABRE);}
-"}"         {sscanf(yytext,"%s,yylval.value");return(LLAVCIERRA);}
-","         {sscanf(yytext,"%s,yylval.value");return(COMA);}
-":"         {sscanf(yytext,"%s,yylval.value");return(DOSPUNT);}
-"("         {sscanf(yytext,"%s,yylval.value");return(PARENTAB);}
-")"         {sscanf(yytext,"%s,yylval.value");return(PARENTCIERR);}
+"{"         {sscanf(yytext,"%s,yylval.value");return('{');}
+"}"         {sscanf(yytext,"%s,yylval.value");return('}');}
+","         {sscanf(yytext,"%s,yylval.value");return(',');}
+":"         {sscanf(yytext,"%s,yylval.value");return(':');}
+"("         {sscanf(yytext,"%s,yylval.value");return('(');}
+")"         {sscanf(yytext,"%s,yylval.value");return(')');}
+"["         {sscanf(yytext,"%s,yylval.value");return('[');}
+"]"         {sscanf(yytext,"%s,yylval.value");return(']');}
 "+"         {sscanf(yytext,"%s,yylval.value");return(SUM);}
 "-"         {sscanf(yytext,"%s,yylval.value");return(RES);}
 "*"         {sscanf(yytext,"%s,yylval.value");return(MUL);}
 "/"         {sscanf(yytext,"%s,yylval.value");return(DIV);}
-"^"         {sscanf(yytext,"%s,yylval.value");return(POT);}
-"!"         {sscanf(yytext,"%s,yylval.value");return(NEG);}
-";"         {sscanf(yytext,"%s,yylval.value"),return(PUNTCOM);}
-"="         {sscanf(yytext,"%s,yylval.value");return(ASIGNACION);}
+"^"         {sscanf(yytext,"%s,yylval.value");return('^');}
+"!"         {sscanf(yytext,"%s,yylval.value");return('!');}
+";"         {sscanf(yytext,"%s,yylval.value"),return(';');}
+"="         {sscanf(yytext,"%s,yylval.value");return('=');}
 "+="        {sscanf(yytext,"%s,yylval.value");return(COMPSUM);}
 "-="        {sscanf(yytext,"%s,yylval.value");return(COMPRES);}
 "*="        {sscanf(yytext,"%s,yylval.value");return(COMPMUL);}
 "/="        {sscanf(yytext,"%s,yylval.value");return(COMPDIV);}
-">"         {sscanf(yytext,"%s,yylval.value");return(MAYOR);}
-"<"         {sscanf(yytext,"%s,yylval.value");return(MENOR);}
+">"         {sscanf(yytext,"%s,yylval.value");return('>');}
+"<"         {sscanf(yytext,"%s,yylval.value");return('<');}
 "++"        {sscanf(yytext,"%s,yylval.value");return(INCRE);}
 "--"         {sscanf(yytext,"%s,yylval.value");return(DECRE);}
 "&&"         {sscanf(yytext,"%s,yylval.value");return(AND);}
@@ -47,6 +49,10 @@ id {L}({L}|{D})* /*Si se encuentra un caracter seguido de mas caracteres o numer
 "<="         {sscanf(yytext,"%s,yylval.value");return(MENIG);}
 "=="         {sscanf(yytext,"%s,yylval.value");return(IGUAL);}
 "!="         {sscanf(yytext,"%s,yylval.value");return(DIF);}
+">>"		 {sscanf(yytext,"%s,yylval.value")); return(OPDER); }
+"<<"		 {sscanf(yytext,"%s,yylval.value")); return(OPIZQ); }
+"?"			 {sscanf(yytext,"%s,yylval.value")); return('?'); }
+"|"			 {sscanf(yytext,"%s,yylval.value"); return('|'); }
 .           {showError(); return(OTHER);}
 
 %%
